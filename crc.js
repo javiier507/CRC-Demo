@@ -1,24 +1,19 @@
-let generador = [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1];
-let bitsRedundante = [0, 0, 0, 0];
-let mensaje = [1, 0, 0, 1, 1];
+//  ............................................................
+//  ............................................................
+//  FUNCTIONS
+//  ............................................................
+//  ............................................................
 
-let serieData = [];
-
-function startCRC(generadorX, bitsRedundanteX, mensajeX) {
+function startCRC(mensaje, bitsRedundante, generador) {
     let result = [];
 
-    let generadorTmp = [];
+    mensaje.push(...bitsRedundante);
 
-    generadorTmp.push(...generadorX);
-    generadorTmp.push(...bitsRedundanteX);
-
-    result.push(...[generadorTmp]);
-    result.push(...[mensajeX]);
+    result.push(...[mensaje]);
+    result.push(...[generador]);
 
     return result;
 }
-
-serieData = startCRC(generador, bitsRedundante, mensaje);
 
 function calculateCRC(serie) {
     
@@ -134,18 +129,6 @@ function calculateCRC(serie) {
     return serie;
 }
 
-serieData = calculateCRC(serieData);
-
-console.log(serieData);
-
-//  ............................................................
-//  ............................................................
-//  PART 2
-//  ............................................................
-//  ............................................................
-
-console.log('PARTE 2');
-
 function getResidue(serie) {
     let result = [];
 
@@ -172,14 +155,43 @@ function getResidue(serie) {
     return result;
 }
 
-bitsRedundante = getResidue(serieData);
+//  ............................................................
+//  ............................................................
+//  DATA
+//  ............................................................
+//  ............................................................
 
-serieData = [];
+let mensaje = [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1];
+let bitsRedundante = [0, 0, 0, 0];
+let generador = [1, 0, 0, 1, 1];
 
-serieData = startCRC(generador, bitsRedundante, mensaje);
+let serie1 = [], serie2 = [];
 
-serieData = calculateCRC(serieData);
+//  ............................................................
+//  ............................................................
+//  PART 1
+//  ............................................................
+//  ............................................................
+serie1 = startCRC(mensaje.slice(), bitsRedundante, generador);
+serie1 = calculateCRC(serie1.slice());
 
-console.log(serieData);
+//  ............................................................
+//  ............................................................
+//  PART 2
+//  ............................................................
+//  ............................................................
 
-//  INVESTIGAR SOBRE BINDING DE PARAMETROS
+bitsRedundante = getResidue(serie1.slice());
+
+serie2 = startCRC(mensaje.slice(), bitsRedundante, generador);
+serie2 = calculateCRC(serie2.slice());
+
+//  ............................................................
+//  ............................................................
+//  RESULTS
+//  ............................................................
+//  ............................................................
+
+console.log(serie1);
+console.log('\n');
+console.log(serie2);
