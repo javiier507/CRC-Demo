@@ -4,11 +4,20 @@
   "description": "teleinformatica",
   "main": "polinomial.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "author": "javiier507",
   "license": "ISC",
   "dependencies": {
-    "puppeteer": "^1.10.0"
+    "bulma": "^0.7.2",
+    "puppeteer": "^1.10.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1"
   }
 }

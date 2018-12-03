@@ -2,9 +2,50 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.min.css">
     <title>CRC</title>
 </head>
 <body>
-    <script src="polinomial.js"></script>
+    <div class="container">
+        <div class="formCustom">
+            <div class="field">
+                <label for="#" class="label">Mensaje</label>
+                <div class="control">
+                    <input type="text" class="input" placeholder="Ingresar Mensaje">
+                </div>
+            </div>
+            <div class="field">
+                <label for="#" class="label">Polinomio Generador</label>
+                <div class="control">
+                    <input type="text" class="input" placeholder="Ingresar Polionomio">
+                </div>
+            </div>
+            <a href="#" class="button is-primary">Simular</a>
+        </div>
+        <div class="tableCustom">
+            <table class="table is-bordered is-striped is-fullwidth">
+                <tbody>
+                    <tr>
+                        <td>lorem</td>
+                        <td>lorem</td>
+                        <td>lorem</td>
+                    </tr>
+                    <tr>
+                        <td>lorem</td>
+                        <td>lorem</td>
+                        <td>lorem</td>
+                    </tr>
+                    <tr>
+                        <td>lorem</td>
+                        <td>lorem</td>
+                        <td>lorem</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="app"></div>
+    <script src="index.js"></script>
 </body>
 </html>
