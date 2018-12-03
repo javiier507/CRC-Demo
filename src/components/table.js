@@ -2,17 +2,17 @@ import React from "react";
 
 export default class Table extends React.Component {
     
-    renderRows(items) {
+    renderRows(items, index) {
         let result = [];
 
-        result = items.map( (elem) => {
+        result = items.map( (elem, i) => {
             return (
-                <td>{elem}</td>
+                <td key={i}>{elem}</td>
             )
         });
 
         return (
-            <tr>{result}</tr>
+            <tr key={index}>{result}</tr>
         );
     }
     

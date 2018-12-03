@@ -1,6 +1,7 @@
 const puppeteer = require('puppeteer');
 
-(async () => {
+async function scraping() {
+    
     const browser = await puppeteer.launch({
         headless: false,
         slowMo: 300,
@@ -8,8 +9,6 @@ const puppeteer = require('puppeteer');
     });
     const page = await browser.newPage();
     await page.goto('http://ascii2hex.com');
-
-    
 
     const entrada = await page.$eval('#converter_text', (el) => el.value = 'HI');
     console.log(`ENTRADA = ${entrada}`);
@@ -22,4 +21,8 @@ const puppeteer = require('puppeteer');
     await page.waitForNavigation();
 
     await browser.close();
-})();
+}
+
+scraping();
+
+//  export default scraping;

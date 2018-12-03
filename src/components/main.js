@@ -4,6 +4,7 @@ import Form from './form';
 import Table from './table';
 
 import CRC from '../modules/crc';
+//import Scraping from '../modules/webscrap';
 
 export default class Main extends React.Component {
 
@@ -19,6 +20,9 @@ export default class Main extends React.Component {
     }
 
     calculate(message, generator) {
+        
+        //Scraping();
+        
         let mensaje = [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1];
         let bitsRedundante = [0, 0, 0, 0];
         let generador = [1, 0, 0, 1, 1];
