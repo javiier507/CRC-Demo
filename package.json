@@ -5,7 +5,7 @@
   "main": "polinomial.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html --no-cache"
   },
   "author": "javiier507",
   "license": "ISC",

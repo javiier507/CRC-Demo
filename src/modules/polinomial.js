@@ -1,16 +1,18 @@
 function convertirPolinomioEnBinario(formula)
 {
-	console.log(`\nFORMULA = ${formula}`);
+	let resultado = [];
+
+	//console.log(`\nFORMULA = ${formula}`);
 
 	let listaVariables = formula.split('+');
 
-	console.log(`\nVARIABLES = ${listaVariables}`);
+	//console.log(`\nVARIABLES = ${listaVariables}`);
 
 	let listaExponentes = listaVariables.map((item) => {
 
 		let variableItem = item.split('^');
 
-		console.log(`\nVARIABLES ITEM = ${variableItem}`);
+		//console.log(`\nVARIABLES ITEM = ${variableItem}`);
 
 		let exponente = -1;
 		let flagNumber = false;
@@ -38,22 +40,21 @@ function convertirPolinomioEnBinario(formula)
 
 		}
 
-		console.log(`EXPONENTE ITEM = ${exponente}`);
+		//console.log(`EXPONENTE ITEM = ${exponente}`);
 
 		return exponente;
 	});
 
-	console.log(`\nEXPONENTES = ${listaExponentes}`);
+	//console.log(`\nEXPONENTES = ${listaExponentes}`);
 
 	let maximo = Math.max(...listaExponentes);
 
-	console.log(`\nMAX = ${maximo}`);
+	//console.log(`\nMAX = ${maximo}`);
 
-	console.log('\nTRANSFORMACION A BINARIO');
+	//console.log('\nTRANSFORMACION A BINARIO');
 
 	if(maximo >= 0 && maximo <= 32) {
 
-		let resultado = [];
 		let binary;
 
 		for(let number = maximo; number >= 0; number--) {
@@ -65,17 +66,20 @@ function convertirPolinomioEnBinario(formula)
 				binary = 0;
 			}
 
-			console.log(`ELEMENTO = ${number} ; ${binary}`);
+			//console.log(`ELEMENTO = ${number} ; ${binary}`);
 
 			resultado.push(binary);
 
 		}
 
-		console.log(`\nRESULTADO = ${formula} = ${resultado}`);
+		//console.log(`\nRESULTADO = ${formula} = ${resultado}`);
 	}
+	return resultado;
 }
 
-let formula = 'X^3+2';
+/* let formula = 'X^3+2';
 
-convertirPolinomioEnBinario(formula);
+convertirPolinomioEnBinario(formula); */
+
+export default convertirPolinomioEnBinario;
 

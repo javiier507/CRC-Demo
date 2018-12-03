@@ -27,9 +27,11 @@ function calculateCRC(serie) {
 
     let rowsResults = [];
 
+    let limit = 32;
+
     for(let iteracion = 0; x2 <= serieLength1; iteracion++) {
 
-        if(x2 > 32 || iteracion > 32) {
+        if(x2 > limit || iteracion > limit) {
             break;
         }
 
@@ -142,14 +144,27 @@ function getResidue(serie) {
 
         let value = parseInt(item);
 
-        if (!isNaN(value) && value === 1) {
-            flag = true;
+        if(!isNaN(value)) {
+            if (value === 1) {
+                flag = true;
+            }
+    
+            if (flag === true) {
+                result.push(value);
+            }
         }
+    }
 
-        if (flag === true) {
-            result.push(value);
-        }
+    return result;
+}
 
+function getRedundantBits(size) {
+    let result = [];
+
+    size = (size >= 0) ? size : 0;
+
+    for(let index = 1; index < size; index++) {
+        result.push(0);
     }
 
     return result;
@@ -158,7 +173,8 @@ function getResidue(serie) {
 export default {
     startCRC,
     calculateCRC,
-    getResidue
+    getResidue,
+    getRedundantBits
 }
 
 //  ............................................................
