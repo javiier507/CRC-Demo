@@ -82,7 +82,7 @@ function calculateCRC(serie) {
         //  ............................................................
 
         x1 = rowsResults.findIndex( (item) => item === 1 );
-        x1 = (x1 === -1) ? serieLength2 + 1 : x1;
+        x1 = (x1 === -1) ? x2 : x1;
         x2 = x1 + serieLength2;
 
         y2 = serie.length - 1;
