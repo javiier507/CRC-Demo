@@ -38,7 +38,7 @@ export default class Main extends React.Component {
             serie1 = CRC.startCRC(mensaje.slice(), bitsRedundante, generador);
             serie1 = CRC.calculateCRC(serie1.slice());
 
-            bitsRedundante = CRC.getResidue(serie1.slice());
+            bitsRedundante = CRC.getResidue(serie1.slice(), generador.length);
             serie2 = CRC.startCRC(mensaje.slice(), bitsRedundante, generador);
             serie2 = CRC.calculateCRC(serie2.slice());
 

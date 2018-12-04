@@ -131,27 +131,26 @@ function calculateCRC(serie) {
     return serie;
 }
 
-function getResidue(serie) {
+function getResidue(serie, size) {
     let result = [];
 
     let position = serie.length - 1;
     position = (position >= 0) ? position : 0;
 
+    size -= 1;
+    size = (size >= 0) ? size : 0;
+
     let row = serie[position];
-    let flag = false;
+    let dimension = row.length;
+    let flagIndex = dimension - size;
 
-    for (let item of row) {
+    for (let index in row) {
 
+        let item = row[index];
         let value = parseInt(item);
 
-        if(!isNaN(value)) {
-            if (value === 1) {
-                flag = true;
-            }
-    
-            if (flag === true) {
-                result.push(value);
-            }
+        if(index >= flagIndex && !isNaN(value)) {
+            result.push(value);
         }
     }
 
@@ -183,16 +182,16 @@ export default {
 //  ............................................................
 //  ............................................................
 
-/* let mensaje = [1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1];
-let bitsRedundante = [0, 0, 0, 0];
-let generador = [1, 0, 0, 1, 1];
+/* let mensaje = [1, 1, 0, 1, 0, 1];
+let generador = [1, 0, 0, 1];
+let bitsRedundante = getRedundantBits(generador.length);
 
 let serie1 = [], serie2 = [];
 
 serie1 = startCRC(mensaje.slice(), bitsRedundante, generador);
 serie1 = calculateCRC(serie1.slice());
 
-bitsRedundante = getResidue(serie1.slice());
+bitsRedundante = getResidue(serie1.slice(), generador.length);
 serie2 = startCRC(mensaje.slice(), bitsRedundante, generador);
 serie2 = calculateCRC(serie2.slice());
 
