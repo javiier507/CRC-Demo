@@ -27,7 +27,7 @@ export default class Form extends React.Component {
 
     render() {
         return (
-            <form className="formCustom" onSubmit={this.handleSubmit}>
+            <form style={{ paddingBottom: '40px' }} onSubmit={this.handleSubmit}>
                 <div className="field">
                     <label className="label">Mensaje</label>
                     <div className="control">

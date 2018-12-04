@@ -28,6 +28,9 @@ export default class Table extends React.Component {
 
             table1 = (
                 <table className="table is-bordered is-striped is-fullwidth">
+                    <thead>
+                        <th>Serie #1</th>
+                    </thead>
                     <tbody>{rows}</tbody>
                 </table>
             );
@@ -39,13 +42,16 @@ export default class Table extends React.Component {
 
             table2 = (
                 <table className="table is-bordered is-striped is-fullwidth">
+                    <thead>
+                        <th>Serie #2</th>
+                    </thead>
                     <tbody>{rows}</tbody>
                 </table>
             );
         }
         
         return (
-            <div className="tableCustom">
+            <div style={{ paddingBottom: '40px' }}>
                 {table1}
                 {table2}
             </div>
