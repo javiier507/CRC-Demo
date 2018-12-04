@@ -27,12 +27,12 @@ export default class Table extends React.Component {
             rows = serie1.map(this.renderRows);
 
             table1 = (
-                <table className="table is-bordered is-striped is-fullwidth">
-                    <thead>
-                        <th>Serie #1</th>
-                    </thead>
-                    <tbody>{rows}</tbody>
-                </table>
+                <div style={{ marginBottom: '40px' }}>
+                    <h2 className="subtitle">Serie #1</h2>
+                    <table className="table is-bordered is-striped is-fullwidth">
+                        <tbody>{rows}</tbody>
+                    </table>
+                </div>
             );
         }
 
@@ -41,12 +41,12 @@ export default class Table extends React.Component {
             rows = serie2.map(this.renderRows);
 
             table2 = (
-                <table className="table is-bordered is-striped is-fullwidth">
-                    <thead>
-                        <th>Serie #2</th>
-                    </thead>
-                    <tbody>{rows}</tbody>
-                </table>
+                <div>
+                    <h2 class="subtitle">Serie #2</h2>
+                    <table className="table is-bordered is-striped is-fullwidth">
+                        <tbody>{rows}</tbody>
+                    </table>
+                </div>
             );
         }
         
